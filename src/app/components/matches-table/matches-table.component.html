@@ -1,0 +1,28 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">score 1</th>
+        <th scope="col">score 2</th>
+        <th scope="col">team 1</th>
+        <th scope="col">team 1</th>
+        <th scope="col">result</th>
+        <th scope="col">action</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let elt of T">
+       
+        <td>{{elt._id}}</td>
+        <td>{{elt.scoreOne}}</td>
+        <td>{{elt.scoreTwo}}</td>
+        <td>{{elt.teamOne}}</td>
+        <td>{{elt.teamTwo}}</td>
+        <td><span [ngStyle]="{color: result(elt.scoreOne,elt.scoreTwo,elt.teamOne)[1]}">
+          {{result(elt.scoreOne,elt.scoreTwo,elt.teamOne)[0]}}</span></td>
+        <td><button style="margin-right: 2%;" type="button" class="btn btn-success" (click)="goToInfo(elt._id)">display</button> <button type="button" class="btn btn-danger" (click)="goToEdit(elt._id)">edit</button><button type="button" (click)="deleteMatch(elt._id)" class="btn btn-danger">delete</button></td>
+
+      </tr>
+    </tbody>
+  </table>

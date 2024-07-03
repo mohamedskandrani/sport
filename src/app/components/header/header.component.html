@@ -1,0 +1,48 @@
+<div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close">
+            <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+</div>
+<header class="site-navbar py-4" role="banner">
+
+    <div class="container">
+        <div class="d-flex align-items-center">
+            <div class="site-logo">
+                <a href="index.html">
+                    <img src="assets/images/logo.png" alt="Logo">
+                </a>
+            </div>
+            <div class="ml-auto">
+                <nav class="site-navigation position-relative text-right" role="navigation">
+                    <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                        <li class="active"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                dashboard
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a routerLink="addmatch" class="dropdown-item" href="#">add match</a>
+                              <a routerLink="addteam" class="dropdown-item" href="#">add team</a>
+                              <a routerLink="addPlayer" class="dropdown-item" href="#">add player</a>
+                              <a routerLink="admin" class="dropdown-item" href="#">admin</a>
+                            </div>
+                        </li>
+                        <li><a routerLink="matches" class="nav-link">all Matches</a></li>
+                        <li><a routerLink="player" class="nav-link">Players</a></li>
+                        <li><a routerLink="teams" class="nav-link">teams</a></li>
+                        <li><a routerLink="signin" class="nav-link">login</a></li>
+                        <li><a routerLink="inscription" class="nav-link">signup</a></li>
+                        <li><a routerLink="research" class="nav-link">research</a></li>
+                    </ul>
+                </nav>
+
+                <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right text-white"><span
+        class="icon-menu h3 text-white"></span></a>
+            </div>
+        </div>
+    </div>
+
+</header>
