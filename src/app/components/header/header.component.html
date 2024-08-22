@@ -13,29 +13,34 @@
             <div class="site-logo">
                 <a href="index.html">
                     <img src="assets/images/logo.png" alt="Logo">
+
                 </a>
             </div>
             <div class="ml-auto">
                 <nav class="site-navigation position-relative text-right" role="navigation">
                     <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                        <li class="active"><a href="index.html" class="nav-link">Home</a></li>
-                        <li class="dropdown">
+                        x
+                        <li><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="dropdown" *ngIf="decoded?.role == 'admin'">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                dashboard
+                                dashboard   
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a routerLink="addmatch" class="dropdown-item" href="#">add match</a>
-                              <a routerLink="addteam" class="dropdown-item" href="#">add team</a>
-                              <a routerLink="addPlayer" class="dropdown-item" href="#">add player</a>
-                              <a routerLink="admin" class="dropdown-item" href="#">admin</a>
+                                <a routerLink="addmatch" class="dropdown-item" href="#">add match</a>
+                                <a routerLink="addteam" class="dropdown-item" href="#">add team</a>
+                                <a routerLink="addPlayer" class="dropdown-item" href="#">add player</a>
+                                <a routerLink="admin" class="dropdown-item" href="#">admin</a>
                             </div>
                         </li>
                         <li><a routerLink="matches" class="nav-link">all Matches</a></li>
                         <li><a routerLink="player" class="nav-link">Players</a></li>
                         <li><a routerLink="teams" class="nav-link">teams</a></li>
-                        <li><a routerLink="signin" class="nav-link">login</a></li>
-                        <li><a routerLink="inscription" class="nav-link">signup</a></li>
+                        <li *ngIf="!isLoggedIn()"><a routerLink="signin" class="nav-link">login</a></li>
+                        <li *ngIf="!isLoggedIn()"><a routerLink="inscription" class="nav-link">signup</a></li>
+                        <li *ngIf="isLoggedIn()"><a routerLink="inscription" class="nav-link" (click)="LogOut()">logout</a></li>
                         <li><a routerLink="research" class="nav-link">research</a></li>
+                        <li><a routerLink="weather" class="nav-link">weather</a></li>
+                        <li *ngIf="isLoggedIn()"><a href="index.html" class="nav-link">welcome {{decoded?.firstName}}</a></li>
                     </ul>
                 </nav>
 

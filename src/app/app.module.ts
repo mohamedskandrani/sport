@@ -38,7 +38,8 @@ import { ResearchComponent } from './research/research.component';
 import{HttpClientModule} from "@angular/common/http";
 import { EditMatchComponent } from './edit-match/edit-match.component';
 import { EditTeamComponent } from './edit-team/edit-team.component';
-import { EditPlayerComponent } from './edit-player/edit-player.component'
+import { EditPlayerComponent } from './edit-player/edit-player.component';
+import { WeatherComponent } from './components/weather/weather.component'
 
 
 @NgModule({
@@ -77,7 +78,8 @@ import { EditPlayerComponent } from './edit-player/edit-player.component'
     ResearchComponent,
     EditMatchComponent,
     EditTeamComponent,
-    EditPlayerComponent
+    EditPlayerComponent,
+    WeatherComponent
   ],
   imports: [
     BrowserModule,

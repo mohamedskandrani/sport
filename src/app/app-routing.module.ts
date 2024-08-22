@@ -17,6 +17,7 @@ import { ResearchComponent } from './research/research.component';
 import { EditMatchComponent } from './edit-match/edit-match.component';
 import { EditTeamComponent } from './edit-team/edit-team.component';
 import { EditPlayerComponent } from './edit-player/edit-player.component';
+import { WeatherComponent } from './components/weather/weather.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -36,7 +37,8 @@ const routes: Routes = [
   { path: 'edit-match/:id', component: EditMatchComponent },
   { path: 'edit-team/:id', component: EditTeamComponent },
   { path: 'edit-player/:id', component: EditPlayerComponent },
-  { path: 'research', component: ResearchComponent }
+  { path: 'research', component: ResearchComponent },
+  { path: 'weather', component: WeatherComponent }
 ];
 
 @NgModule({

@@ -23,6 +23,8 @@ export class TeamsTableComponent implements OnInit {
   ngOnInit(): void {
     this.teamService.getAllteams().subscribe(
       (data) => {
+        console.log("here teams", data.teams);
+        
         this.T = data.teams
       }
     );

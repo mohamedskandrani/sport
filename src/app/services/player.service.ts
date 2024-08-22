@@ -13,7 +13,7 @@ export class playerService {
 
 
   addplayer(player: any) {
-    return this.http.post<{isAdded:boolean}>(this.playerUrl, player);
+    return this.http.post<{msg:string}>(this.playerUrl, player);
 
   }
   editplayer(playerObj: any) {

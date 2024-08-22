@@ -9,5 +9,5 @@
 </div>
 
 <div style="margin-bottom: 2%;" *ngFor="let elt of matchesTab">
-    <app-result [matchInput]="elt"></app-result>
+    <app-result [matchInput]="elt" (matchesToEmit)="upDateMatches($event)"></app-result>
 </div>

@@ -9,8 +9,8 @@ import { MatchService } from '../services/match.service';
 })
 export class ResearchComponent implements OnInit {
   researchForm!: FormGroup;
- 
-  T: any
+
+  T: any = []
 
 
   constructor(private formBuilder: FormBuilder,
@@ -26,7 +26,8 @@ export class ResearchComponent implements OnInit {
   research() {
     console.log('here object', this.researchForm.value);
     this.matchService.research(this.researchForm.value).subscribe((data) => {
-      console.log('here matches from BE', data.T);
+      console.log('here matches from BE', data.res);
+      this.T = data.res;
     })
   }
 }

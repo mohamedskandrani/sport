@@ -21,6 +21,9 @@ export class MatchesComponent implements OnInit {
     this.mService.getAllMatches().subscribe(
       (response)=>{console.log("here response from BE", response.matches);
         this. matchesTab =response.matches}
-    );
+    )};
+    upDateMatches(T:any){
+      this.matchesTab=T;
+    }
   }
-}
+  

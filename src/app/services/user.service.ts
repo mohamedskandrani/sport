@@ -10,10 +10,17 @@ export class UserService {
   constructor(private http:HttpClient) { }
   // login(user: any){
   //   return this.http.post(this.userUrl,user);}
-  signUp(user: any){
-    return this.http.post<{isAdded:boolean}>(this.userUrl+'/signUp',user);
+  signUp(user: any ,photo:File){
+    let fData = new FormData();
+    fData.append("firstName",user.firstName)
+    fData.append("lastName",user.lastName)
+    fData.append("email",user.email)
+    fData.append("pwd",user.pwd)
+    fData.append("role",user.role)
+    fData.append("img",photo)
+    return this.http.post<{isAdded:boolean}>(this.userUrl+'/signUp',fData);
   }
   logIn(user: any){
-    return this.http.post<{msg:string;role:string}>(this.userUrl+'/login',user);
+    return this.http.post<{msg:string;user:any}>(this.userUrl+'/login',user);
   }
 }

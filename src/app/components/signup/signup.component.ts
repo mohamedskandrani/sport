@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { response } from 'express';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -14,6 +13,8 @@ export class SignupComponent implements OnInit {
   signupForm!: FormGroup
   test: boolean = false;
   actualPath: any;
+  imagePreview:any;
+  slectedFile:any;
 
   constructor(private formBuilder: FormBuilder,
     private userService: UserService,
@@ -39,11 +40,26 @@ export class SignupComponent implements OnInit {
     }
     console.log("role", this.signupForm.value)
 
-    this.userService.signUp(this.signupForm.value).subscribe((result) => {
+    this.userService.signUp(this.signupForm.value,this.slectedFile).subscribe((result) => {
 
-      this.router.navigate(['signin'])
+      this.router.navigate(['signin']);
     })
 
   }
+  onImageSelected(event: Event) {
+    
+    const inputElement = event.target as HTMLInputElement;
+    if (inputElement && inputElement.files && inputElement.files.length
+    > 0) {
+    const file = inputElement.files[0];
+    this.slectedFile=file;
+    const reader = new FileReader();
+    reader.onload = () => {
+    this.imagePreview = reader.result as string;
+    };
+    reader.readAsDataURL(file);
+    }
+    }
+    
 
 }

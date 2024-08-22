@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MatchService } from 'src/app/services/match.service';
 
 @Component({
   selector: 'app-result',
@@ -8,7 +9,10 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ResultComponent implements OnInit {
 
   @Input() matchInput:any;
-  constructor() { }
+  @Output() matchesToEmit:EventEmitter<any> = new EventEmitter();
+  constructor(
+    private matchService: MatchService,
+  ) { }
 
   ngOnInit(): void {
   }
@@ -23,5 +27,16 @@ export class ResultComponent implements OnInit {
       return 'blue'
     }
   }
-
+  deleteMatch(id: any) {
+    this.matchService.deletematch(id).subscribe(
+      (response) => {
+        console.log('here response from BE', response.isDeleted);
+        if (response.isDeleted) {
+          this.matchService.getAllMatches().subscribe((data)=>{
+            console.log('here data froma be',data.matches);
+            this.matchesToEmit.emit(data.matches); 
+        })
+      }
+  });
+  }
 }
